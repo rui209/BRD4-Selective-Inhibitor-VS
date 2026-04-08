@@ -1,0 +1,20 @@
+QSAR MODEL VALIDATION REPORT
+Model: Random Forest (ECFP4)  |  Date: 2026-04-08
+
+Test R²:   0.7789 [0.7478–0.8082]
+Test RMSE: 0.6031 [0.5655–0.6422]
+Test MAE:  0.4353 [0.4067–0.4644]
+Y-rand Z:  61.26  (p=0.0000)  PASS
+GT criteria: PASS
+
+GOLBRAIKH-TROPSHA CRITERIA
+r² > 0.6                       PASS
+|r²−r0²| < 0.1                 PASS
+0.85 ≤ k ≤ 1.15                PASS
+|r0²−r'0²| < 0.3               PASS
+
+Y-RANDOMIZATION
+Original R² (CV): 0.5944
+Randomized mean:  -0.0822
+Z-score:          61.26
+n iterations:     30
