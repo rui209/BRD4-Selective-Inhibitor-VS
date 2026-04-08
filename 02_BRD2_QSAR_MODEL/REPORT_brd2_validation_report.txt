@@ -1,0 +1,20 @@
+QSAR MODEL VALIDATION REPORT — BRD2
+Model: Random Forest (ECFP4)  |  Date: 2026-04-08
+
+NOTE: Model is used as qualitative selectivity filter only.
+Training set size: 635 compounds (<1000).
+Predictions interpreted alongside BRD4/BRD2 docking score differentials.
+
+Test R²:   0.5852
+Test RMSE: 0.3664
+Test MAE:  0.2980
+
+GOLBRAIKH-TROPSHA CRITERIA
+r² > 0.6                       FAIL
+|r²−r0²| < 0.1                 (see notebook)
+0.85 ≤ k ≤ 1.15                (see notebook)
+|r0²−r'0²| < 0.3               (see notebook)
+
+Y-RANDOMIZATION
+Original R² (CV): (see notebook)
+n iterations:     30

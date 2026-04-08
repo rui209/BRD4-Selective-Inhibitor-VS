@@ -1,0 +1,6 @@
+Model,Train+Val R2,Test R2,Test RMSE,Test MAE
+Random Forest (FP) - Baseline,0.909277,0.539918,0.385905,0.309508
+Random Forest (FP) - Optimized,0.871549,0.585187,0.366428,0.297564
+Random Forest (Desc) - Baseline,0.914287,0.282276,0.481994,0.376764
+SVR (Desc) - Baseline,0.807329,0.378675,0.448458,0.342412
+SVR (Desc) - Optimized,0.805792,0.382697,0.447005,0.34002
