@@ -1,0 +1,26 @@
+{
+  "random_forest_optimized": {
+    "representation": "ECFP4 fingerprints (2048 bits)",
+    "parameters": {
+      "max_depth": null,
+      "max_features": "sqrt",
+      "min_samples_leaf": 1,
+      "min_samples_split": 2,
+      "n_estimators": 100
+    },
+    "cv_rmse": 0.7024596753490137,
+    "test_r2": 0.7787204338703846,
+    "test_rmse": 0.6042427496729523
+  },
+  "svr_optimized": {
+    "representation": "RDKit descriptors (scaled)",
+    "parameters": {
+      "C": 10.0,
+      "epsilon": 0.1,
+      "gamma": "auto"
+    },
+    "cv_rmse": 0.7753438335462449,
+    "test_r2": 0.7432323632139375,
+    "test_rmse": 0.6508949984408774
+  }
+}
