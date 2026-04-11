@@ -1,0 +1,43 @@
+#!/bin/bash
+#PBS -N ROC_BRD4
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=48:00:00
+#PBS -l mem=32gb
+#PBS -j oe
+
+# Change to working directory
+cd $PBS_O_WORKDIR
+
+# Initialise results file
+echo "Ligand_name,Is_active,Affinity" > summary.csv
+
+# Docking loop over actives and decoys
+for ligand in active_*.pdbqt decoy_*.pdbqt; do
+
+    [ -e "$ligand" ] || continue
+
+    name=$(basename "$ligand" .pdbqt)
+
+    if [[ "$name" == active_* ]]; then
+        is_active=1
+    else
+        is_active=0
+    fi
+
+    echo "Docking $name ..."
+
+    vina --config config.txt --ligand "$ligand" --out "${name}_out.pdbqt" > vina.log
+
+    # Extract best affinity score from Vina output
+    score=$(grep -m 1 "^   1 " vina.log | awk '{print $2}')
+
+    # If no score extracted, set to 0.0
+    if [ -z "$score" ]; then
+        score=0.0
+    fi
+
+    echo "$name,$is_active,$score" >> summary.csv
+
+done
+
+echo "Done. Results saved to summary.csv"

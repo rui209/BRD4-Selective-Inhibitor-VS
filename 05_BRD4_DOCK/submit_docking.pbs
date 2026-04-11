@@ -1,0 +1,27 @@
+#!/bin/bash
+#PBS -N BRD4_docking
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=48:00:00
+#PBS -l mem=32gb
+#PBS -j oe
+#PBS -o docking_log.txt
+
+# Load modules
+source /home/svu/e1569136/miniconda3/etc/profile.d/conda.sh
+conda activate base
+
+# Go to working directory
+cd /home/svu/e1569136/BRD4_Dock_v3 || exit 1
+
+mkdir -p docking_results
+
+# Run docking (all 1950 ligands)
+python run_docking.py \
+    --protein protein.pdbqt \
+    --ligands BRD4_library_clean.sdf \
+    --outdir docking_results \
+    --start 0 \
+    --end 1955 \
+    > docking_python.log 2>&1
+
+echo "Exit code: $?" >> docking_python.log

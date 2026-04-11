@@ -1,0 +1,23 @@
+#!/bin/bash
+#PBS -N RF_Rescore
+#PBS -l nodes=1:ppn=16
+#PBS -l walltime=24:00:00
+#PBS -l mem=32gb
+#PBS -j oe
+
+RFSCORE_BIN="/home/svu/e1569136/RF_Score_VS/rf-score-vs"
+RECEPTOR="/home/svu/e1569136/ROC_BRD4_V2/09_apo_protein_clean_FINAL.pdb"
+
+# Change to working directory (set PBS_O_WORKDIR when submitting)
+cd $PBS_O_WORKDIR
+
+echo "Running RF-Score-VS rescoring..."
+
+${RFSCORE_BIN} \
+    --receptor ${RECEPTOR} \
+    -i pdbqt \
+    -o csv \
+    -O rfscore_summary.csv \
+    *_out.pdbqt
+
+echo "Done. Results saved to rfscore_summary.csv"
