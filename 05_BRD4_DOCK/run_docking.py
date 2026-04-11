@@ -1,3 +1,5 @@
+# Note: protein.pdbqt = 09_apo_protein_clean_FINAL.pdbqt (renamed for convenience)
+
 # =============================================================================
 #  AutoDock Vina -- Docking Pipeline for HPC
 # =============================================================================
