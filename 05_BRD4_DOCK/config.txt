@@ -1,3 +1,10 @@
+# config.txt - Default configuration for BRD4 docking
+# Note: This file serves as the base template.
+# For ROC validation, submit_all.sh automatically generates
+# 6 config files with different scoring functions (vina/vinardo)
+# and exhaustiveness values (8/16/32).
+# Final docking protocol: Vinardo, exhaustiveness=8 (hardcoded in run_docking.py)
+
 receptor = /home/svu/e1569136/ROC_BRD4_V1/09_apo_protein_clean_FINAL.pdbqt
 scoring = vina
 exhaustiveness = 8
