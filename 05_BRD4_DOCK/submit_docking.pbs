@@ -15,7 +15,7 @@ cd /home/svu/e1569136/BRD4_Dock_v3 || exit 1
 
 mkdir -p docking_results
 
-# Run docking (all 1950 ligands)
+# Run docking (all 1955 ligands)
 python run_docking.py \
     --protein protein.pdbqt \
     --ligands BRD4_library_clean.sdf \
