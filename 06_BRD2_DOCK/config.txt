@@ -1,0 +1,9 @@
+receptor = /home/svu/e1569136/ROC_BRD2/09_apo_protein_clean_FINAL.pdbqt
+scoring = vina
+exhaustiveness = 8
+center_x = 13.72
+center_y = -2.63
+center_z = 3.37
+size_x = 21.70
+size_y = 21.77
+size_z = 16.59
