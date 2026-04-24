@@ -1,0 +1,4 @@
+parm complex_wat.prmtop
+parmwrite out complex_wat.psf
+
+quit

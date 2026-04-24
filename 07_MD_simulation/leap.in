@@ -1,0 +1,33 @@
+# load force fields
+source leaprc.protein.ff14SB
+source leaprc.gaff2
+source leaprc.water.tip3p
+
+# load ligand params
+loadamberparams BRD4_1629.frcmod
+LIG = loadmol2 BRD4_1629.mol2
+
+# load the cleaned protein
+receptor = loadpdb BRD4_final.pdb
+
+# combine
+complex = combine {receptor LIG}
+
+# check ion
+check complex
+charge complex
+addIons complex Na+ 0
+addIons complex Cl- 0
+
+# save
+saveamberparm complex complex_ion.prmtop complex_ion.rst7
+savepdb complex complex_ion.pdb
+
+# water box
+solvateoct complex TIP3PBOX 12.0
+
+# save final files
+saveamberparm complex complex_wat.prmtop complex_wat.rst7
+savepdb complex complex_wat.pdb
+
+quit

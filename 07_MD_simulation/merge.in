@@ -1,0 +1,9 @@
+parm complex_wat.prmtop
+trajin prod_001.nc
+trajin prod_002.nc
+
+# Write trajectory in DCD format for VMD
+trajout prod_combined_BRD4_1629.dcd dcd
+
+run
+quit

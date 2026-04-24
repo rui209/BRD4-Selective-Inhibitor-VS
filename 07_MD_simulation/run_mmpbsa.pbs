@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -N mmpbsa
+#PBS -l select=1:ncpus=8:mem=16gb
+#PBS -l walltime=10:00:00
+#PBS -j oe
+#PBS -o mmpbsa.log
+
+source /app1/ebenv
+module load Amber/22.5-foss-2022a-AmberTools-23.5-CUDA-11.7.0
+
+cd $PBS_O_WORKDIR
+
+mpirun MMPBSA.py.MPI -O \
+  -i mmpbsa.in \
+  -o mmpbsa_results.dat \
+  -do decomp_results.dat \
+  -sp complex_wat.prmtop \
+  -cp complex_dry.prmtop \
+  -rp receptor_dry.prmtop \
+  -lp ligand_dry.prmtop \
+  -y prod_001.nc prod_002.nc
