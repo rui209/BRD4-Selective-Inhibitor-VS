@@ -1,3 +1,10 @@
+# convert .pdbqt to .pdb
+# run in bash
+# obabel -ipdbqt LIG_1629_out.pdbqt -opdb -O LIG_1629_docked.pdb -f 1 -l 1
+
+
+# add H before proceeding to MD simulation
+
 !pip install rdkit -q
 
 from rdkit import Chem
